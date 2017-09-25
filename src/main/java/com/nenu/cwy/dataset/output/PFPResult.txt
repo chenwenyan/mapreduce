@@ -1,0 +1,5 @@
+测试数据：C:\workspace\mapreduce/src/main/java/com/nenu/cwy/dataset/input/T10I4D100K.dat
+支持度阈值：10
+程序运行时间:2900ms
+
+
