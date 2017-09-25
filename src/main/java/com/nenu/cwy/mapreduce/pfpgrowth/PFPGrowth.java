@@ -87,7 +87,6 @@ public class PFPGrowth {
             }
             FileWriter fw = new FileWriter(resultPath,true);
             PrintWriter printWriter = new PrintWriter(fw);
-//            printWriter.println("测试数据：" );
             printWriter.println("测试数据：" + input);
             printWriter.println("支持度阈值：" + minSupport);
             printWriter.println("程序运行时间:"+ costTime + "ms");

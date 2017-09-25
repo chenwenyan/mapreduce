@@ -1,4 +1,4 @@
-package com.nenu.cwy.mapreduce;
+package com.nenu.cwy.mapreduce.wordcount;
 
 import com.nenu.cwy.common.Constants;
 import org.apache.hadoop.conf.Configuration;
