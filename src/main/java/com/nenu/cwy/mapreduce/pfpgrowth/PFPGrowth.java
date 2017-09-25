@@ -36,7 +36,7 @@ public class PFPGrowth {
         //获取当前时间
         long startTime = System.currentTimeMillis();
         //只存储不重复的项
-        Set<String> features = new HashSet<>();
+        Set<String> features = new HashSet<String>();
         //支持度阈值
         int minSupport = 10;
         //top-k  大根堆的大小
@@ -45,9 +45,9 @@ public class PFPGrowth {
         String input = Constants.T10I4D100K;
 
         String pattern = " \"[ ,\\t]*[,|\\t][ ,\\t]*\" ";//do not know why
-        Charset encoding = Charset.forName("utf-8");//设置编码格式
+        Charset encoding = Charset.forName("utf8");//设置编码格式
         FPGrowth<String> fp = new FPGrowth<String>();
-        String output = "D://output.txt"; //输出结果文件
+        String output = Constants.PFPGROWTH_RESULT_PATH; //输出结果文件
         Path path = new Path(output);
         Configuration conf = new Configuration();
         FileSystem fs = FileSystem.get(conf); //通过配置文件获取一个FileSystem实例

@@ -15,14 +15,14 @@ import java.util.Map.Entry;
  */
 public class FPTree {
 
-    private int minSuport;
+    private int minSupport;
 
-    public int getMinSuport() {
-        return minSuport;
+    public int getMinSupport() {
+        return minSupport;
     }
 
-    public void setMinSuport(int minSuport) {
-        this.minSuport = minSuport;
+    public void setMinSupport(int minSupport) {
+        this.minSupport = minSupport;
     }
 
     // 从若干个文件中读入Transaction Record
@@ -128,7 +128,7 @@ public class FPTree {
             Set<String> names = map.keySet();
             for (String name : names) {
                 TreeNode tnode = map.get(name);
-                if (tnode.getCount() >= minSuport) {
+                if (tnode.getCount() >= minSupport) {
                     F1.add(tnode);
                 }
             }
@@ -176,7 +176,7 @@ public class FPTree {
         ArrayList<Entry<String, Integer>> al = new ArrayList<Entry<String, Integer>>(
                 map.entrySet());
         Collections.sort(al, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
+//            @Override
             public int compare(Entry<String, Integer> arg0,
                                Entry<String, Integer> arg1) {
                 // 降序排列
@@ -216,43 +216,34 @@ public class FPTree {
     }
 
     public static void main(String[] args) {
-        FPTree fptree = new FPTree();
-        fptree.setMinSuport(10);
-        List<List<String>> transRecords = LoadDataUtils
-                .loadTransListByFilepath(Constants.T10I4D100K);
-        fptree.FPGrowth(transRecords, null);
-    }
 
-//    public static void main(String[] args) {
-//
-//        //获取开始时间
-//        long startTime = System.currentTimeMillis();
-//        int minSupport = 10;
-//        FPTree fpTree = new FPTree(minSupport);
-//
-//        List<List<String>> transactions = LoadDataUtils.loadTransListByFilepath(Constants.T10I4D100K);
-//        fpTree.FPGrowth(transactions, null);
-//
-//        //获取结束时间
-//        long endTime = System.currentTimeMillis();
-//        long costTime = endTime - startTime;
-//        System.out.println("程序运行时间:"+ costTime + "ms");
-//
-//        File resultPath = new File("D:\\FPResult.txt");
-//        try{
-//            if(!resultPath.exists()){
-//                resultPath.createNewFile();
-//            }
-//            FileWriter fw = new FileWriter(resultPath,true);
-//            PrintWriter printWriter = new PrintWriter(fw);
-//            printWriter.println("测试数据：" + Constants.T10I4D100K);
-//            printWriter.println("支持度阈值：" + minSupport);
-//            printWriter.println("程序运行时间："+ costTime + "ms");
-//            printWriter.println("\n");
-//            fw.close();
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//    }
+        //获取开始时间
+        long startTime = System.currentTimeMillis();
+        int minSupport = 10;
+        FPTree fptree = new FPTree();
+        fptree.setMinSupport(10);
+        List<List<String>> transRecords = LoadDataUtils.loadTransListByFilepath(Constants.T10I4D100K);
+        fptree.FPGrowth(transRecords, null);
+
+        //获取结束时间
+        long endTime = System.currentTimeMillis();
+        long costTime = endTime - startTime;
+        System.out.println("程序运行时间:"+ costTime + "ms");
+
+        File resultPath = new File(Constants.FPGROWTH_RESULT_PATH);
+        try{
+            if(!resultPath.exists()){
+                resultPath.createNewFile();
+            }
+            FileWriter fw = new FileWriter(resultPath,true);
+            PrintWriter printWriter = new PrintWriter(fw);
+            printWriter.println("测试数据：" + Constants.T10I4D100K);
+            printWriter.println("支持度阈值：" + minSupport);
+            printWriter.println("程序运行时间："+ costTime + "ms");
+            printWriter.println("\n");
+            fw.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

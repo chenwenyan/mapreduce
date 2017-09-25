@@ -20,6 +20,7 @@ public final class Constants {
 
     //输出结果路径
     public static final String PFPGROWTH_RESULT_PATH = DATA_ROOT_PATH + "output/PFPResult.txt";
+    public static final String FPGROWTH_RESULT_PATH = DATA_ROOT_PATH + "output/FPResult.txt";
 
 
     public static final String WORD_COUNT_FILE_OUT_PATH = DATA_ROOT_PATH + "output/wordCountResult.txt";
