@@ -38,7 +38,7 @@ public class FPTree {
                         String line;
                         List<String> record;
                         while ((line = br.readLine()) != null) {
-                            if(line.trim().length()>0){
+                            if (line.trim().length() > 0) {
                                 String str[] = line.split("，");
                                 record = new LinkedList<String>();
                                 for (String w : str)
@@ -67,10 +67,10 @@ public class FPTree {
         // 构建FP-Tree
         TreeNode treeRoot = buildFPTree(transRecords, HeaderTable);
         // 如果FP-Tree为空则返回
-        if (treeRoot.getChildren()==null || treeRoot.getChildren().size() == 0)
+        if (treeRoot.getChildren() == null || treeRoot.getChildren().size() == 0)
             return;
         //输出项头表的每一项+postPattern
-        if(postPattern!=null){
+        if (postPattern != null) {
             for (TreeNode header : HeaderTable) {
                 System.out.print(header.getCount() + "\t" + header.getName());
                 for (String ele : postPattern)
@@ -176,7 +176,7 @@ public class FPTree {
         ArrayList<Entry<String, Integer>> al = new ArrayList<Entry<String, Integer>>(
                 map.entrySet());
         Collections.sort(al, new Comparator<Map.Entry<String, Integer>>() {
-//            @Override
+            //            @Override
             public int compare(Entry<String, Integer> arg0,
                                Entry<String, Integer> arg1) {
                 // 降序排列
@@ -228,21 +228,28 @@ public class FPTree {
         //获取结束时间
         long endTime = System.currentTimeMillis();
         long costTime = endTime - startTime;
-        System.out.println("程序运行时间:"+ costTime + "ms");
+        System.out.println("程序运行时间:" + costTime + "ms");
 
         File resultPath = new File(Constants.FPGROWTH_RESULT_PATH);
-        try{
-            if(!resultPath.exists()){
+        try {
+            if (!resultPath.exists()) {
                 resultPath.createNewFile();
             }
-            FileWriter fw = new FileWriter(resultPath,true);
+            FileWriter fw = new FileWriter(resultPath, true);
             PrintWriter printWriter = new PrintWriter(fw);
             printWriter.println("测试数据：" + Constants.T10I4D100K);
             printWriter.println("支持度阈值：" + minSupport);
-            printWriter.println("程序运行时间："+ costTime + "ms");
+            printWriter.println("程序运行时间：" + costTime + "ms");
+
+            Runtime rt = Runtime.getRuntime();
+            long totalMemory = rt.totalMemory();
+            long freeMemory = rt.freeMemory();
+            System.out.println("占用内存：" + (totalMemory - freeMemory) / (1024 * 1024) + "MB");
+            printWriter.println("占用内存：" + (totalMemory - freeMemory) / (1024 * 1024) + "MB");
+
             printWriter.println("\n");
             fw.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

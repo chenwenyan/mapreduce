@@ -1,0 +1,12 @@
+测试数据：D:\workspace\mapreduce/src/main/java/com/nenu/cwy/dataset/input/T10I4D100K.dat
+支持度阈值：20
+程序运行时间:2724ms
+占用内存：69MB
+
+
+测试数据：D:\workspace\mapreduce/src/main/java/com/nenu/cwy/dataset/input/T10I4D100K.dat
+支持度阈值：20
+程序运行时间:3166ms
+占用内存：21MB
+
+

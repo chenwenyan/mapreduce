@@ -31,14 +31,14 @@ import java.util.Set;
  * Time: 20:37
  */
 public class PFPGrowth {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
         //获取当前时间
         long startTime = System.currentTimeMillis();
         //只存储不重复的项
         Set<String> features = new HashSet<String>();
         //支持度阈值
-        int minSupport = 10;
+        int minSupport = 20;
         //top-k  大根堆的大小
         int maxHeapSize = 50;
         //测试数据路径
@@ -78,21 +78,28 @@ public class PFPGrowth {
         //获取结束时间
         long endTime = System.currentTimeMillis();
         long costTime = endTime - startTime;
-        System.out.println("程序运行时间:"+ costTime + "ms");
+        System.out.println("程序运行时间:" + costTime + "ms");
 
         File resultPath = new File(Constants.PFPGROWTH_RESULT_PATH);
-        try{
-            if(!resultPath.exists()){
+        try {
+            if (!resultPath.exists()) {
                 resultPath.createNewFile();
             }
-            FileWriter fw = new FileWriter(resultPath,true);
+            FileWriter fw = new FileWriter(resultPath, true);
             PrintWriter printWriter = new PrintWriter(fw);
             printWriter.println("测试数据：" + input);
             printWriter.println("支持度阈值：" + minSupport);
-            printWriter.println("程序运行时间:"+ costTime + "ms");
+            printWriter.println("程序运行时间:" + costTime + "ms");
+
+            Runtime rt = Runtime.getRuntime();
+            long totalMemory = rt.totalMemory();
+            long freeMemory = rt.freeMemory();
+            System.out.println("占用内存：" + (totalMemory - freeMemory) / (1024 * 1024) + "MB");
+            printWriter.println("占用内存：" + (totalMemory - freeMemory) / (1024 * 1024) + "MB");
+
             printWriter.println("\n");
             fw.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
