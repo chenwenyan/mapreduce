@@ -1,0 +1,1000 @@
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b
+d c b a
+h g a c
+e f a
+d f c a
+e f a c
+e d b
+b a c
+c b a
+c d b
+e d b

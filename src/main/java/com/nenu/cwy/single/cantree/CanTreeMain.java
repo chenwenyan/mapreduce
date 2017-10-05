@@ -2,7 +2,9 @@ package com.nenu.cwy.single.cantree;
 
 import com.nenu.cwy.common.Constants;
 import com.nenu.cwy.common.LoadDataUtils;
+import com.nenu.cwy.single.fpgrowth.TreeNode;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
 public class CanTreeMain {
 
     //测试数据集
-    private static String input = Constants.T10I4D100K;
+    private static String input = Constants.DICTIONARY_FILE_PATH;
 
     /**
      * 每行记录按照字母序列排序
@@ -79,14 +81,42 @@ public class CanTreeMain {
        }
     }
 
-    public void CanTreeGrowth(List<List<String>> translations, List<String> postPattern){
+    public void canTreeGrowth(List<List<String>> translations, List<String> postPattern){
         //构建CanTree
         CanTreeNode treeRoot = buildCanTree(translations);
         //若根节点子节点为空，则返回空
         if(treeRoot.getChildren() == null || treeRoot.getChildren().size() == 0){
             return;
         }else{
-
+            //TODO:频繁模式集
+            for(char a = 'a'; a < 'z'; a++){
+                CanTreeNode canTreeNode = new CanTreeNode(String.valueOf(a));
+                canTreeNode.setCount(1);
+                //后缀模式基增加一项
+                List<String> newPostPattern = new LinkedList<String>();
+                newPostPattern.add(String.valueOf(a));
+                if(postPattern != null){
+                    newPostPattern.addAll(postPattern);
+                }
+                //查询字符的条件模式基，放入到newTransRecords中
+                List<List<String>> newTransRecords = new LinkedList<List<String>>();
+                CanTreeNode backnode = canTreeNode.getNextHomonym();
+                while (backnode != null) {
+                    int counter = backnode.getCount();
+                    List<String> prenodes = new ArrayList<String>();
+                    CanTreeNode parent = backnode;
+                    // 遍历backnode的祖先节点，放到prenodes中
+                    while ((parent = parent.getParent()).getName() != null) {
+                        prenodes.add(parent.getName());
+                    }
+                    while (counter-- > 0) {
+                        newTransRecords.add(prenodes);
+                    }
+                    backnode = backnode.getNextHomonym();
+                }
+                //递归
+                canTreeGrowth(newTransRecords, newPostPattern);
+            }
         }
 
     }
@@ -94,9 +124,12 @@ public class CanTreeMain {
 
 
     public static void main(String[] args) {
+        int minSupport = 2;
         //扫描数据库 获取事务集合
         List<List<String>> translations = LoadDataUtils.loadTransListByFilepath(input);
         if(!translations.isEmpty()){
+            CanTreeMain canTreeMain = new CanTreeMain();
+            canTreeMain.canTreeGrowth(translations,null);
 
         }else{
             System.out.println("数据集为空！");

@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -85,6 +86,40 @@ public class LoadDataUtils {
                 i++;
                 System.out.println("第"+ i + "行" + a);
                 translations.add(Arrays.asList(a.split(" ")));
+            }
+            System.out.println("load translations end*****************************");
+        } catch (IOException e) {
+            System.out.println("读取文件数据出错");
+            e.printStackTrace();
+        }
+        return translations;
+    }
+
+    /**
+     * 根据文件路径读取数据
+     *
+     * @param filePath
+     * @return
+     */
+    public static LinkedList<LinkedList<String>> loadTransListByFilepath2(String filePath) {
+        //数据集合
+        LinkedList<LinkedList<String>> translations = new LinkedList<LinkedList<String>>();
+        //存放每行数据
+        String a = "";
+        //计数
+        int i = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(new File(filePath)));
+            System.out.println("translations are:*********************************");
+            while ((a = br.readLine()) != null) {
+                i++;
+                System.out.println("第"+ i + "行" + a);
+                String[] line = a.split(" ");
+                LinkedList<String> item = new LinkedList<>();
+                for(int k = 0; k < line.length; k++){
+                     item.add(line[k]);
+                }
+                translations.add(item);
             }
             System.out.println("load translations end*****************************");
         } catch (IOException e) {
