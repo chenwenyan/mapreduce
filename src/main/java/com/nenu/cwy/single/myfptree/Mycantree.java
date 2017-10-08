@@ -22,7 +22,7 @@ public class Mycantree {
     public LinkedList<TreeNode2> buildHeaderLink() {
         LinkedList<TreeNode2> header = new LinkedList<TreeNode2>();
 
-        for (char i = 'a'; i <= 'h'; i++) {
+        for (char i = 'a'; i <= 'z'; i++) {
           TreeNode2 item = new TreeNode2(String.valueOf(i));
           header.add(item);
         }
@@ -55,6 +55,7 @@ public class Mycantree {
             return null;
         }
         for (LinkedList<String> items : records) {
+            //从小到大排序
             Collections.sort(items);
             addNode(root, items, header);
         }
@@ -107,8 +108,9 @@ public class Mycantree {
      * @param newrecord
      */
     public void findRootByLeaf(TreeNode2 node, LinkedList<String> newrecord) {
-        if (node.getParent() == null)
+        if (node.getParent() == null){
             return;
+        }
         String name = node.getName();
         newrecord.add(name);
         findRootByLeaf(node.getParent(), newrecord);
@@ -124,40 +126,44 @@ public class Mycantree {
         //保存新的条件模式基的各个记录，以又一次构造can tree
         LinkedList<LinkedList<String>> newrecords = new LinkedList<LinkedList<String>>();
         //构建链头
-        LinkedList<TreeNode2> header = buildHeaderLink();
-        //创建FP-Tree
+      LinkedList<TreeNode2> header = buildHeaderLink();
+//        LinkedList<TreeNode2> header = buildHeaderLinkByInt();
+        //构建can tree
         TreeNode2 cantree = buildCanTree(records, header);
         //结束递归的条件
-        if (header.size() <= 0 || cantree == null) {
-//            System.out.println("-----------------");
+        if (cantree == null) {
             return;
         }
         //打印结果,输出频繁项集
         if (item != null) {
-            //寻找条件模式基,从链尾開始
-            for (int i = header.size() - 1; i >= 0; i--) {
+            //寻找条件模式基,从链头开始
+            for (int i = 0; i < header.size(); i++) {
                 TreeNode2 head = header.get(i);
                 Integer count = 0;
                 while (head.getNextHomonym() != null) {
                     head = head.getNextHomonym();
-                    //叶子count等于多少。就算多少条记录
+                    //叶子count等于多少，就算多少条记录
                     count = count + head.getCount();
                 }
                 //打印频繁项集
                 if(count >= support){
                     System.out.println(head.getName() + "," + item + "\t" + count);
                 }
+//                else{
+//                    System.out.println("there is no frequent patterns which support is bigger than minsupport ");
+//                    break;
+//                }
             }
         }
-        //寻找条件模式基,从链尾开始
-        for (int i = header.size() - 1; i >= 0; i--) {
+        //寻找条件模式基,从链头开始
+        for (int i = 0; i < header.size(); i++) {
             TreeNode2 head = header.get(i);
-            String itemname;
+            String itemName;
             //再组合
             if (item == null) {
-                itemname = head.getName();
+                itemName = head.getName();
             } else {
-                itemname = head.getName() + "," + item;
+                itemName = head.getName() + "," + item;
             }
 
             while (head.getNextHomonym() != null) {
@@ -171,7 +177,7 @@ public class Mycantree {
                 }
             }
             //递归之,以求子can tree
-            cantreeGrowth(newrecords, itemname, support);
+            cantreeGrowth(newrecords, itemName, support);
         }
     }
 
@@ -182,7 +188,7 @@ public class Mycantree {
         long startTime = System.currentTimeMillis();
 
         //支持度阈值
-        int support = 102;
+        int support = 30;
 
         //读取数据
         Mycantree mycantree = new Mycantree();

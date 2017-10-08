@@ -18,14 +18,15 @@ import java.util.*;
  * Time: 15:28
  */
 public class Myfptree {
-    public static final int support = 2; // 设定最小支持频次为2
+    public static final int support = 30; // 设定最小支持频次为2
     //保存第一次的次序
     public Map<String, Integer> ordermap = new HashMap<String, Integer>();
 
     public LinkedList<LinkedList<String>> readF1() throws IOException {
         LinkedList<LinkedList<String>> records = new LinkedList<LinkedList<String>>();
-        //String filePath="scripts/clustering/canopy/canopy.dat";
-        String filePath = Constants.T10I4D100K;
+
+//        String filePath = Constants.T10I4D100K;
+        String filePath = Constants.DICTIONARY_FILE_PATH;
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream(filePath)));
         for (String line = br.readLine(); line != null; line = br.readLine()) {
@@ -240,7 +241,6 @@ public class Myfptree {
         TreeNode2 fptree = builderFpTree(records, header);
         //结束递归的条件
         if (header.size() <= 0 || fptree == null) {
-            System.out.println("-----------------");
             return;
         }
         //打印结果,输出频繁项集
@@ -280,7 +280,6 @@ public class Myfptree {
                     newrecords.add(record);
                 }
             }
-            //System.out.println("-----------------");
             //递归之,以求子FP-Tree
             fpgrowth(newrecords, itemname);
         }
@@ -295,11 +294,20 @@ public class Myfptree {
     }
 
     public static void main(String[] args) throws IOException {
+
+        //获取开始时间
+        long startTime = System.currentTimeMillis();
+
         //读取数据
         Myfptree fpg = new Myfptree();
         LinkedList<LinkedList<String>> records = fpg.readF1();
         LinkedList<TreeNode2> orderheader = fpg.buildHeaderLink(records);
         fpg.orderF1(orderheader);
         fpg.fpgrowth(records, null);
+
+        //获取结束时间
+        long endTime = System.currentTimeMillis();
+        long costTime = endTime - startTime;
+        System.out.println("程序运行时间:" + costTime + "ms");
     }
 }
