@@ -73,11 +73,11 @@ public class CanTreeNode implements Comparable<CanTreeNode>{
      */
     public void addChild(CanTreeNode child){
         if(this.getChildren() == null){
-            List<CanTreeNode> children = new ArrayList<>();
+            List<CanTreeNode> children = new ArrayList<CanTreeNode>();
             children.add(child);
             this.setChildren(children);
         }else{
-            this.children.add(child);
+            this.getChildren().add(child);
         }
     }
 
@@ -91,7 +91,8 @@ public class CanTreeNode implements Comparable<CanTreeNode>{
         List<CanTreeNode> children = this.getChildren();
         if(children != null){
             for(CanTreeNode treeNode : children){
-                if(treeNode.getName() == name){
+                //equals 只比较字符串的内容
+                if(treeNode.getName().equals(name)){
                     return treeNode;
                 }
             }
@@ -100,11 +101,10 @@ public class CanTreeNode implements Comparable<CanTreeNode>{
     }
 
     public CanTreeNode(String name){
-        this.setCount(0);
         this.name = name;
     }
 
-    @Override
+//    @Override
     public int compareTo(CanTreeNode o) {
         int count = o.getCount();
         return count - this.count;

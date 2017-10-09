@@ -115,7 +115,7 @@ public class LoadDataUtils {
                 i++;
                 System.out.println("第"+ i + "行" + a);
                 String[] line = a.split(" ");
-                LinkedList<String> item = new LinkedList<>();
+                LinkedList<String> item = new LinkedList<String>();
                 for(int k = 0; k < line.length; k++){
                      item.add(line[k]);
                 }

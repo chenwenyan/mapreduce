@@ -188,7 +188,7 @@ public class Mycantree {
         long startTime = System.currentTimeMillis();
 
         //支持度阈值
-        int support = 30;
+        int support = 3;
 
         //读取数据
         Mycantree mycantree = new Mycantree();

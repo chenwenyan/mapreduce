@@ -104,7 +104,7 @@ public class TreeNode2 implements Comparable<TreeNode2> {
     }
 
 
-    @Override
+//    @Override
     public int compareTo(TreeNode2 arg0) {
         // TODO Auto-generated method stub
         int count0 = arg0.getCount();
