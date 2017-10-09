@@ -1,5 +1,6 @@
 package com.nenu.cwy.single.cantree;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,16 +13,16 @@ import java.util.List;
 public class ConditionPatternBase {
 
     //条件模式基value
-    private List<String> value;
+    private LinkedList<String> value;
 
-    //个数
+    //出现次数
     private Integer count;
 
-    public List<String> getValue() {
+    public LinkedList<String> getValue() {
         return value;
     }
 
-    public void setValue(List<String> value) {
+    public void setValue(LinkedList<String> value) {
         this.value = value;
     }
 
@@ -37,7 +38,7 @@ public class ConditionPatternBase {
 
     }
 
-    public ConditionPatternBase(List<String> value, Integer count){
+    public ConditionPatternBase(LinkedList<String> value, Integer count){
         this.value = value;
         this.count = count;
     }

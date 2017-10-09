@@ -18,7 +18,7 @@ import java.util.*;
  * Time: 15:28
  */
 public class Myfptree {
-    public static final int support = 30; // 设定最小支持频次为2
+    public static final int support = 2; // 设定最小支持频次为2
     //保存第一次的次序
     public Map<String, Integer> ordermap = new HashMap<String, Integer>();
 
