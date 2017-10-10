@@ -23,8 +23,8 @@ public class Mycantree {
         LinkedList<TreeNode2> header = new LinkedList<TreeNode2>();
 
         for (char i = 'a'; i <= 'z'; i++) {
-          TreeNode2 item = new TreeNode2(String.valueOf(i));
-          header.add(item);
+            TreeNode2 item = new TreeNode2(String.valueOf(i));
+            header.add(item);
         }
         return header;
     }
@@ -64,7 +64,7 @@ public class Mycantree {
 
     /**
      * 给每一个节点添加子节点
-     * 
+     *
      * @param root 根节点
      * @param items  项集
      * @param header  项头表
@@ -103,7 +103,7 @@ public class Mycantree {
 
     /**
      * 根据叶子节点找到根节点root
-     * 
+     *
      * @param node
      * @param newrecord
      */
@@ -126,7 +126,7 @@ public class Mycantree {
         //保存新的条件模式基的各个记录，以又一次构造can tree
         LinkedList<LinkedList<String>> newrecords = new LinkedList<LinkedList<String>>();
         //构建链头
-      LinkedList<TreeNode2> header = buildHeaderLink();
+        LinkedList<TreeNode2> header = buildHeaderLink();
 //        LinkedList<TreeNode2> header = buildHeaderLinkByInt();
         //构建can tree
         TreeNode2 cantree = buildCanTree(records, header);
