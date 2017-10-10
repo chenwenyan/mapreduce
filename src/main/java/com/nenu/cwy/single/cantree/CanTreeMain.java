@@ -4,6 +4,7 @@ import com.nenu.cwy.common.Constants;
 import com.nenu.cwy.common.LoadDataUtils;
 import com.nenu.cwy.mapreduce.cantree.CanTree;
 import com.nenu.cwy.single.fpgrowth.TreeNode;
+import com.nenu.cwy.single.myfptree.TreeNode2;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -83,7 +84,6 @@ public class CanTreeMain {
             //直到最后一个同名节点结束while循环，并把item锁对应的node加入到header的同名节点中
             for (CanTreeNode header : headerTable) {
                 if (header.getName().equals(item)) {
-//                   header.setCount(header.getCount() + 1);
                     while (header.getNextHomonym() != null) {
                         header = header.getNextHomonym();
                     }
@@ -102,7 +102,6 @@ public class CanTreeMain {
 
     public void canTreeGrowth(LinkedList<LinkedList<String>> translations, String item) {
         //条件模式基
-        LinkedList<ConditionPatternBase> conditionPatternBases = new LinkedList<ConditionPatternBase>();
         LinkedList<LinkedList<String>> records = new LinkedList<LinkedList<String>>();
         //构建项头表
         LinkedList<CanTreeNode> headerTable = buildHeaderTableByDictionary(translations);
@@ -121,24 +120,33 @@ public class CanTreeMain {
             } else {
                 name = header.getName() + ',' + item;
             }
-
             while (header.getNextHomonym() != null) {
                 header = header.getNextHomonym();
                 Integer count = header.getCount();
-                //当出现次数大于或者等于支持度阈值，查找频繁项集
-                if(count >= minSupport) {
                     for (int n = 0; n < count; n++) {
                         LinkedList<String> record = new LinkedList<String>();
                         findRootByLeaf(header.getParent(), record);
-                        ConditionPatternBase conditionPatternBase = new ConditionPatternBase(record, count);
-                        System.out.println("[" + conditionPatternBase.getValue() + "]" + ":" + conditionPatternBase.getCount());
-                        conditionPatternBases.add(conditionPatternBase);
                         records.add(record);
                     }
-                }
             }
             //递归
             canTreeGrowth(records, name);
+        }
+
+        //输出频繁项集
+        if (item != null) {
+            for (int i = headerTable.size() - 1; i >= 0; i--) {
+                CanTreeNode header = headerTable.get(i);
+                Integer count = 0;
+                while (header.getNextHomonym() != null) {
+                    header = header.getNextHomonym();
+                    //叶子count等于多少 就算多少条记录
+                    count = count + header.getCount();
+                }
+                if(count >= minSupport){
+                    System.out.println("[" + header.getName() + "," + item + "]" + count);
+                }
+            }
         }
     }
 
@@ -161,6 +169,9 @@ public class CanTreeMain {
 
     public static void main(String[] args) {
 
+        //获取开始时间
+        long startTime = System.currentTimeMillis();
+
         //扫描数据库 获取事务集合
         LinkedList<LinkedList<String>> translations = LoadDataUtils.loadTransListByFilepath2(input);
         if (!translations.isEmpty()) {
@@ -169,6 +180,11 @@ public class CanTreeMain {
         } else {
             System.out.println("数据集为空！");
         }
+
+        //获取结束时间
+        long endTime = System.currentTimeMillis();
+        long costTime = endTime - startTime;
+        System.out.println("程序运行时间:" + costTime + "ms");
 
     }
 

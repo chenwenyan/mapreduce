@@ -11,9 +11,9 @@ import java.util.*;
 /**
  * Myfptree
  * Author： wychen
- *
+ * <p>
  * 源代码：http://www.cnblogs.com/liguangsunls/p/6892482.html
- *
+ * <p>
  * Date: 2017/10/5
  * Time: 15:28
  */
@@ -82,7 +82,6 @@ public class Myfptree {
     public List<TreeNode2> sort(List<TreeNode2> list) {
         int len = list.size();
         for (int i = 0; i < len; i++) {
-
             for (int j = i + 1; j < len; j++) {
                 TreeNode2 node1 = list.get(i);
                 TreeNode2 node2 = list.get(j);
@@ -117,7 +116,6 @@ public class Myfptree {
 
     //选择法排序。降序,假设同名按L 中的次序排序
     public List<String> itemsort(LinkedList<String> lis, List<TreeNode2> header) {
-        //List<String> list=new ArrayList<String>();
         //选择法排序
         int len = lis.size();
         for (int i = 0; i < len; i++) {
@@ -205,11 +203,9 @@ public class Myfptree {
                     break;
                 }
             }
-            //加将各个节点加到链头中
         } else {
             node.setCount(node.getCount() + 1);
         }
-
         addNode(node, items, header);
         return root;
     }
@@ -248,7 +244,6 @@ public class Myfptree {
             //寻找条件模式基,从链尾開始
             for (int i = header.size() - 1; i >= 0; i--) {
                 TreeNode2 head = header.get(i);
-                String itemname = head.getName();
                 Integer count = 0;
                 while (head.getNextHomonym() != null) {
                     head = head.getNextHomonym();
