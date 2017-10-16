@@ -24,6 +24,11 @@ public class CanTreeMain {
     //支持度阈值
     private static int minSupport = 2;
 
+    //新增数据集
+    private static String incrementInput = Constants.DICTIONARY_FILE_PATH;
+    //上次构建树结构
+    private static CanTreeNode lastCantree = new CanTreeNode();
+
     /**
      * 根据字典序列构建项头表
      *
@@ -100,6 +105,12 @@ public class CanTreeMain {
         return root;
     }
 
+    /**
+     * 第一次挖掘频繁模式集
+     *
+     * @param translations
+     * @param item
+     */
     public void canTreeGrowth(LinkedList<LinkedList<String>> translations, String item) {
         //条件模式基
         LinkedList<LinkedList<String>> records = new LinkedList<LinkedList<String>>();
@@ -107,6 +118,10 @@ public class CanTreeMain {
         LinkedList<CanTreeNode> headerTable = buildHeaderTableByDictionary(translations);
         //构建canTree
         CanTreeNode canTree = buildCanTree(translations, headerTable);
+
+        //存储上次构建的树结构
+        lastCantree = canTree;
+
         //树为空，则直接返回
         if (canTree == null) {
             return;
@@ -164,6 +179,20 @@ public class CanTreeMain {
         record.add(name);
         //递归向上查找
         findRootByLeaf(node.getParent(), record);
+    }
+
+    public void buildSecondCanTree(CanTreeNode treeNode, LinkedList<LinkedList<String>> incrementList){
+
+    }
+
+    /**
+     * 根据新增数据集构建cantree节点树
+     *
+     * @param canTreeNode
+     * @return
+     */
+    public CanTreeNode buildCanTreeNodeByIncrement(CanTreeNode canTreeNode, LinkedList<LinkedList<String>>){
+         return null;
     }
 
 
