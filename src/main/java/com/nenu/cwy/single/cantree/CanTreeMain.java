@@ -45,17 +45,17 @@ public class CanTreeMain {
     /**
      * 构建canTree
      *
-     * @param root
      * @param translations
      * @param headerTable
      * @return
      */
-    public CanTreeNode buildCanTree(CanTreeNode root,
-                                    LinkedList<LinkedList<String>> translations,
+    public CanTreeNode buildCanTree(LinkedList<LinkedList<String>> translations,
                                     LinkedList<CanTreeNode> headerTable) {
         if (translations.size() <= 0) {
             return null;
         }
+        //创建根节点
+        CanTreeNode root = new CanTreeNode("root");
         for (LinkedList<String> record : translations) {
             //按照字母序排列
             Collections.sort(record);
@@ -115,7 +115,11 @@ public class CanTreeMain {
         //条件模式基
         LinkedList<LinkedList<String>> records = new LinkedList<LinkedList<String>>();
 
-        if(translations.size() <= 0 ){
+        //构建canTree
+        CanTreeNode canTree = buildCanTree(translations, headerTable);
+
+        //树为空，则直接返回
+        if (canTree == null) {
             return;
         }
         //从项头表尾部开始依次寻找条件模式基
@@ -210,12 +214,13 @@ public class CanTreeMain {
 
         //扫描数据库 获取事务集合
         LinkedList<LinkedList<String>> translations = LoadDataUtils.loadTransListByFilepath2(input);
+        LinkedList<LinkedList<String>> translations_temp = translations;
         if (!translations.isEmpty()) {
             CanTreeMain canTreeMain = new CanTreeMain();
             //构建项头表
             LinkedList<CanTreeNode> headerTable = canTreeMain.buildHeaderTableByDictionary(translations);
             //构建canTree
-            CanTreeNode canTree = canTreeMain.buildCanTree(root, translations, headerTable);
+            CanTreeNode canTree = canTreeMain.buildCanTree(translations, headerTable);
             //第一次构建的树结构
             lastCantree = canTree;
             if(canTree == null){
@@ -223,7 +228,7 @@ public class CanTreeMain {
             }else{
                 //第一次挖掘频繁模式集合
                 System.out.println("第一次挖掘频繁模式集：");
-                canTreeMain.canTreeGrowth(headerTable,translations,null);
+                canTreeMain.canTreeGrowth(headerTable,translations_temp,null);
             }
 
             //新增数据集构建树结构
