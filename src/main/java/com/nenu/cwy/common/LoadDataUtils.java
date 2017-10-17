@@ -1,5 +1,7 @@
 package com.nenu.cwy.common;
 
+import com.nenu.cwy.single.cantree.CanTreeNode;
+
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
@@ -127,6 +129,22 @@ public class LoadDataUtils {
             e.printStackTrace();
         }
         return translations;
+    }
+
+
+    /**
+     * 根据字典序列构建项头表
+     *
+     * @return
+     */
+    public static LinkedList<CanTreeNode> buildHeaderTableByDictionary() {
+        LinkedList<CanTreeNode> canTreeNodeList = new LinkedList<CanTreeNode>();
+        for (char letter = 'a'; letter <= 'g'; letter++) {
+            CanTreeNode canTreeNode = new CanTreeNode(String.valueOf(letter));
+            canTreeNode.setCount(0);
+            canTreeNodeList.add(canTreeNode);
+        }
+        return canTreeNodeList;
     }
 
 }
