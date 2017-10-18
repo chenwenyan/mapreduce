@@ -104,6 +104,11 @@ public class CanTreeNode implements Comparable<CanTreeNode>{
         this.name = name;
     }
 
+    public CanTreeNode(String name, Integer count){
+        this.name = name;
+        this.count = count;
+    }
+
 //    @Override
     public int compareTo(CanTreeNode o) {
         int count = o.getCount();

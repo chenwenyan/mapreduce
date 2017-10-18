@@ -18,6 +18,7 @@ public final class Constants {
     public static final String T40I10D100K = DATA_ROOT_PATH + "input/T40I10D100K.dat";
     public static final String WORD_COUNT_FILE_PATH = DATA_ROOT_PATH + "input/wordCount.txt";
     public static final String DICTIONARY_FILE_PATH = DATA_ROOT_PATH + "input/dictionary.txt";
+    public static final String DICTIONARY_INCREMENT_FILE_PATH = DATA_ROOT_PATH + "input/dictionary-increment.txt";
 
     //输出结果路径
     public static final String PFPGROWTH_RESULT_PATH = DATA_ROOT_PATH + "output/PFPResult.txt";
