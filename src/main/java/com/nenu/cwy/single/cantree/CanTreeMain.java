@@ -105,8 +105,9 @@ public class CanTreeMain {
      * @param translations
      * @param item
      */
-    public void canTreeGrowth(LinkedList<LinkedList<String>> translations,
-                              String item) {
+    public CanTreeNode canTreeGrowth(LinkedList<LinkedList<String>> translations,
+                              String item,
+                              CanTreeNode lastCantree) {
         //条件模式基
         LinkedList<LinkedList<String>> records = new LinkedList<LinkedList<String>>();
 
@@ -114,11 +115,16 @@ public class CanTreeMain {
         LinkedList<CanTreeNode> headerTable = buildHeaderTableByDictionary(translations);
 
         //构建canTree
-        CanTreeNode canTree = buildCanTree(translations,headerTable);
+        CanTreeNode canTree = new CanTreeNode();
+        if(lastCantree == null){
+            canTree = buildCanTree(translations,headerTable);
+        }else{
+            canTree = buildCanTreeNodeByIncrement(lastCantree,translations,headerTable);
+        }
 
         //树为空，则直接返回
         if (canTree == null) {
-            return;
+            return canTree;
         }
         //从项头表尾部开始依次寻找条件模式基
         for (int i = headerTable.size() - 1; i >= 0; i--) {
@@ -140,7 +146,7 @@ public class CanTreeMain {
                     }
             }
             //递归
-            canTreeGrowth(records, name);
+            canTreeGrowth(records, name, lastCantree);
         }
 
         //输出频繁项集
@@ -158,6 +164,8 @@ public class CanTreeMain {
                 }
             }
         }
+
+        return canTree;
     }
 
     /**
@@ -214,17 +222,9 @@ public class CanTreeMain {
 
             LinkedList<CanTreeNode> headerTable = canTreeMain.buildHeaderTableByDictionary(translations);
 
-            //构建canTree
-            CanTreeNode canTree = canTreeMain.buildCanTree(translations,headerTable);
-            //第一次构建的树结构
-            lastCantree = canTree;
-            if(canTree == null){
-                System.out.println("第一次构建cantree结构为空");
-            }else{
-                //第一次挖掘频繁模式集合
-                System.out.println("第一次挖掘频繁模式集：");
-                canTreeMain.canTreeGrowth(translations,null);
-            }
+            //第一次挖掘频繁模式集合
+            System.out.println("第一次挖掘频繁模式集：");
+            lastCantree = canTreeMain.canTreeGrowth(translations,null,null);
 
             //新增数据集构建树结构
             LinkedList<LinkedList<String>> incrementData = LoadDataUtils.loadTransListByFilepath2(incrementInput);
@@ -232,12 +232,12 @@ public class CanTreeMain {
                 System.out.println("新增数据集为空！");
             }else{
                 System.out.println("新增数据集之后挖掘频繁模式集：");
-                CanTreeNode newCanTreeNode = canTreeMain.buildCanTreeNodeByIncrement(lastCantree, incrementData,headerTable);
+                CanTreeNode newCanTreeNode = canTreeMain.buildCanTreeNodeByIncrement(lastCantree, incrementData, headerTable);
                 if(newCanTreeNode == null){
                     System.out.println("--------------------树结构为空--------------------");
                 }else{
                     translations.addAll(incrementData);
-                    canTreeMain.canTreeGrowth( translations,null);
+                    canTreeMain.canTreeGrowth(translations,null, lastCantree);
                 }
             }
 
