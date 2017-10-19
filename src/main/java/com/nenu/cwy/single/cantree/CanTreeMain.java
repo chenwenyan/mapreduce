@@ -103,9 +103,13 @@ public class CanTreeMain {
      * 第一次挖掘频繁模式集
      *
      * @param translations
+     * @param incrementData
      * @param item
+     * @param lastCantree
+     * @return
      */
     public CanTreeNode canTreeGrowth(LinkedList<LinkedList<String>> translations,
+                              LinkedList<LinkedList<String>> incrementData,
                               String item,
                               CanTreeNode lastCantree) {
         //条件模式基
@@ -114,12 +118,14 @@ public class CanTreeMain {
         //构建项头表
         LinkedList<CanTreeNode> headerTable = buildHeaderTableByDictionary(translations);
 
+//        CanTreeNode newCanTreeNode = buildCanTreeNodeByIncrement(lastCantree, incrementData, headerTable);
+
         //构建canTree
         CanTreeNode canTree = new CanTreeNode();
         if(lastCantree == null){
             canTree = buildCanTree(translations,headerTable);
         }else{
-            canTree = buildCanTreeNodeByIncrement(lastCantree,translations,headerTable);
+            canTree = buildCanTreeNodeByIncrement(lastCantree,incrementData,headerTable);
         }
 
         //树为空，则直接返回
@@ -146,7 +152,7 @@ public class CanTreeMain {
                     }
             }
             //递归
-            canTreeGrowth(records, name, lastCantree);
+            canTreeGrowth(records, null,name, lastCantree);
         }
 
         //输出频繁项集
@@ -224,7 +230,7 @@ public class CanTreeMain {
 
             //第一次挖掘频繁模式集合
             System.out.println("第一次挖掘频繁模式集：");
-            lastCantree = canTreeMain.canTreeGrowth(translations,null,null);
+            lastCantree = canTreeMain.canTreeGrowth(translations,null,null,null);
 
             //新增数据集构建树结构
             LinkedList<LinkedList<String>> incrementData = LoadDataUtils.loadTransListByFilepath2(incrementInput);
@@ -237,7 +243,7 @@ public class CanTreeMain {
                     System.out.println("--------------------树结构为空--------------------");
                 }else{
                     translations.addAll(incrementData);
-                    canTreeMain.canTreeGrowth(translations,null, lastCantree);
+                    canTreeMain.canTreeGrowth(translations,null, null, lastCantree);
                 }
             }
 
