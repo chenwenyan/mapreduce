@@ -1,32 +1,33 @@
-package com.nenu.cwy.single.fpgrowth;
+package com.nenu.cwy.single.CATSTree;
+
+import com.nenu.cwy.single.fpgrowth.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TreeNode
+ * CATSTreeNode
  * Author： wychen
- * Date: 2017/9/25
- * Time: 11:01
+ * Date: 2017/10/24
+ * Time: 16:42
  */
-public class TreeNode  implements Comparable<TreeNode>{
-
+public class CATSTreeNode {
     //数据项名称
     private String name;
     //事务数据库中出现次数
     private int count;
     //父节点
-    private TreeNode parent;
+    private CATSTreeNode parent;
     //子节点
-    private List<TreeNode> children;
+    private List<CATSTreeNode> children;
     //下一同名节点
     private TreeNode nextHomonym;
 
-    public TreeNode() {
+    public CATSTreeNode() {
 
     }
 
-    public TreeNode(String name) {
+    public CATSTreeNode(String name) {
         this.name = name;
     }
 
@@ -46,21 +47,21 @@ public class TreeNode  implements Comparable<TreeNode>{
         this.count = count;
     }
 
-    public TreeNode getParent() {
+    public CATSTreeNode getParent() {
         return parent;
     }
 
-    public void setParent(TreeNode parent) {
+    public void setParent(CATSTreeNode parent) {
         this.parent = parent;
     }
 
-    public List<TreeNode> getChildren() {
+    public List<CATSTreeNode> getChildren() {
         return children;
     }
 
-    public void addChild(TreeNode child) {
+    public void addChild(CATSTreeNode child) {
         if (this.getChildren() == null) {
-            List<TreeNode> list = new ArrayList<TreeNode>();
+            List<CATSTreeNode> list = new ArrayList<CATSTreeNode>();
             list.add(child);
             this.setChildren(list);
         } else {
@@ -68,10 +69,10 @@ public class TreeNode  implements Comparable<TreeNode>{
         }
     }
 
-    public TreeNode findChild(String name) {
-        List<TreeNode> children = this.getChildren();
+    public CATSTreeNode findChild(String name) {
+        List<CATSTreeNode> children = this.getChildren();
         if (children != null) {
-            for (TreeNode child : children) {
+            for (CATSTreeNode child : children) {
                 if (child.getName().equals(name)) {
                     return child;
                 }
@@ -80,14 +81,14 @@ public class TreeNode  implements Comparable<TreeNode>{
         return null;
     }
 
-    public void setChildren(List<TreeNode> children) {
+    public void setChildren(List<CATSTreeNode> children) {
         this.children = children;
     }
 
     public void printChildrenName() {
-        List<TreeNode> children = this.getChildren();
+        List<CATSTreeNode> children = this.getChildren();
         if (children != null) {
-            for (TreeNode child : children) {
+            for (CATSTreeNode child : children) {
                 System.out.print(child.getName() + " ");
             }
         } else {
@@ -112,5 +113,4 @@ public class TreeNode  implements Comparable<TreeNode>{
         // 跟默认的比较大小相反，导致调用Arrays.sort()时是按降序排列
         return count0 - this.count;
     }
-
 }
