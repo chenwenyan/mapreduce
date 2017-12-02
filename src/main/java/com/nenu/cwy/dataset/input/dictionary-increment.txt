@@ -1,4 +1,2 @@
-a e
-a d c
-f a
-c e d
+a c b
+a b

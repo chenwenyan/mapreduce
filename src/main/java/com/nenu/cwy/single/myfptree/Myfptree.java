@@ -25,8 +25,7 @@ public class Myfptree {
     public LinkedList<LinkedList<String>> readF1() throws IOException {
         LinkedList<LinkedList<String>> records = new LinkedList<LinkedList<String>>();
 
-//        String filePath = Constants.T10I4D100K;
-        String filePath = Constants.DICTIONARY_FILE_PATH;
+        String filePath = Constants.DICTIONARY_INCREMENT_FILE_PATH;
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream(filePath)));
         for (String line = br.readLine(); line != null; line = br.readLine()) {
@@ -240,20 +239,22 @@ public class Myfptree {
             return;
         }
         //打印结果,输出频繁项集
-        if (item != null) {
-            //寻找条件模式基,从链尾開始
-            for (int i = header.size() - 1; i >= 0; i--) {
-                TreeNode2 head = header.get(i);
-                Integer count = 0;
-                while (head.getNextHomonym() != null) {
-                    head = head.getNextHomonym();
-                    //叶子count等于多少。就算多少条记录
-                    count = count + head.getCount();
-                }
-                //打印频繁项集
+        for (int i = header.size() - 1; i >= 0; i--) {
+            TreeNode2 head = header.get(i);
+            Integer count = 0;
+            while (head.getNextHomonym() != null) {
+                head = head.getNextHomonym();
+                //叶子count等于多少。就算多少条记录
+                count = count + head.getCount();
+            }
+            //打印频繁项集
+            if(item != null){
                 System.out.println(head.getName() + "," + item + "\t" + count);
+            }else {
+                System.out.println(head.getName() + "\t" + count);
             }
         }
+
         //寻找条件模式基,从链尾开始
         for (int i = header.size() - 1; i >= 0; i--) {
             TreeNode2 head = header.get(i);
