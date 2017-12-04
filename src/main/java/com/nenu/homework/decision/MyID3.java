@@ -21,17 +21,59 @@ public class MyID3 {
 
     private static LinkedList<String> attribute = new LinkedList<String>(); // 存储属性的名称
     private static LinkedList<ArrayList<String>> attributevalue = new LinkedList<ArrayList<String>>(); // 存储每个属性的取值
-    private static LinkedList<String[]> data = new LinkedList<String[]>();
-    ; // 原始数据
+    private static LinkedList<String[]> data = new LinkedList<String[]>();// 原始数据
 
     public static final String patternString = "@attribute(.*)[{](.*?)[}]";
     public static String[] yesNo;
     public static TreeNode root;
 
+    /**
+     * 读取arff文件，给attribute、attributevalue、data赋值
+     *
+     * @param file  文件路径
+     */
+    public void readARFF(File file) {
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            Pattern pattern = Pattern.compile(patternString);
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("@decision")) {
+                    line = br.readLine();
+                    if (line == "")
+                        continue;
+                    yesNo = line.split(",");
+                }
+                Matcher matcher = pattern.matcher(line);
+                if (matcher.find()) {
+                    attribute.add(matcher.group(1).trim());
+                    String[] values = matcher.group(2).split(",");
+                    ArrayList<String> al = new ArrayList<String>(values.length);
+                    for (String value : values) {
+                        al.add(value.trim());
+                    }
+                    attributevalue.add(al);
+                } else if (line.startsWith("@data")) {
+                    while ((line = br.readLine()) != null) {
+                        if (line == "")
+                            continue;
+                        String[] row = line.split(",");
+                        data.add(row);
+                    }
+                } else {
+                    continue;
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * @param lines 传入要分析的数据集
-     * @param index 哪个属性？attribute的index
+     * @param index attribute的index
      */
     public Double getGain(LinkedList<String[]> lines, int index) {
         Double gain = -1.0;
@@ -195,45 +237,5 @@ public class MyID3 {
         myid3.readARFF(new File(DATA_ROOT_PATH + "datafile/decisiontree/test/in/weather.nominal.arff"));
         myid3.createDTree();
         myid3.printDTree(root);
-    }
-
-    //读取arff文件，给attribute、attributevalue、data赋值
-    public void readARFF(File file) {
-        try {
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            Pattern pattern = Pattern.compile(patternString);
-            while ((line = br.readLine()) != null) {
-                if (line.startsWith("@decision")) {
-                    line = br.readLine();
-                    if (line == "")
-                        continue;
-                    yesNo = line.split(",");
-                }
-                Matcher matcher = pattern.matcher(line);
-                if (matcher.find()) {
-                    attribute.add(matcher.group(1).trim());
-                    String[] values = matcher.group(2).split(",");
-                    ArrayList<String> al = new ArrayList<String>(values.length);
-                    for (String value : values) {
-                        al.add(value.trim());
-                    }
-                    attributevalue.add(al);
-                } else if (line.startsWith("@data")) {
-                    while ((line = br.readLine()) != null) {
-                        if (line == "")
-                            continue;
-                        String[] row = line.split(",");
-                        data.add(row);
-                    }
-                } else {
-                    continue;
-                }
-            }
-            br.close();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
     }
 }
