@@ -14,8 +14,6 @@ public class TreeNode {
     private TreeNode parent; // 父节点
     private List<TreeNode> children; // 子节点
     private String fatherAttribute; // 此节点是父类的哪具属性的分支
-    //可信度
-    private Double percent;
 
     //属性数组
     private ArrayList<String> liatts;
@@ -59,14 +57,6 @@ public class TreeNode {
 
     public void setFatherAttribute(String fatherAttribute) {
         this.fatherAttribute = fatherAttribute;
-    }
-
-    public Double getPercent() {
-        return percent;
-    }
-
-    public void setPercent(Double percent) {
-        this.percent = percent;
     }
 
     /**

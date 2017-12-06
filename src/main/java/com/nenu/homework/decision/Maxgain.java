@@ -7,8 +7,8 @@ package com.nenu.homework.decision;
  * Time: 20:08
  */
 public class Maxgain {
-    private Double maxgain;
-    private Integer maxindex;
+    private Double maxgain;  //增益值
+    private Integer maxindex; //属性所在位置（数组下标）
 
     public Double getMaxgain() {
         return maxgain;

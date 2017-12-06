@@ -23,9 +23,9 @@ public class MyID3 {
     private static LinkedList<ArrayList<String>> attributevalue = new LinkedList<ArrayList<String>>(); // 存储每个属性的取值
     private static LinkedList<String[]> data = new LinkedList<String[]>();// 原始数据
 
-    public static final String patternString = "@attribute(.*)[{](.*?)[}]";
-    public static String[] yesNo;
-    public static TreeNode root;
+    public static final String patternString = "@attribute(.*)[{](.*?)[}]"; //模式匹配属性以及属性取值
+    public static String[] yesNo;  //存储决策结果
+    public static TreeNode root;   //存储决策树
 
     /**
      * 读取arff文件，给attribute、attributevalue、data赋值
@@ -72,6 +72,8 @@ public class MyID3 {
     }
 
     /**
+     * 计算属性的益值
+     *
      * @param lines 传入要分析的数据集
      * @param index attribute的index
      */
@@ -154,7 +156,6 @@ public class MyID3 {
                 newlines.add(line);
             }
         }
-
         return newlines;
     }
 
@@ -180,15 +181,19 @@ public class MyID3 {
         List<String> liatts = node.getLiatts();
         for (int i = 0; i < liatts.size(); i++) {
             String attname = liatts.get(i);
+            //截取属性下标index的属性值为attname的数据
             LinkedList<String[]> newlines = filterLines(lines, attname, index);
             if (newlines.size() <= 0) {
                 System.out.println("出现异常，循环结束");
                 return;
             }
+
             Maxgain maxgain = getMaxGain(newlines);
+            //获取增益值
             double gain = maxgain.getMaxgain();
+            //获取最大增益值的属性位置
             Integer maxKey = maxgain.getMaxindex();
-            //不等于0继续递归，等于0说明是叶子节点，结束递归。
+            //不等于0继续递归，等于0说明是叶子节点，结束递归
             if (gain != 0) {
                 TreeNode subnode = new TreeNode();
                 subnode.setParent(node);
@@ -221,7 +226,7 @@ public class MyID3 {
         System.out.println(node.getName());
         List<TreeNode> childs = node.getChildren();
         for (int i = 0; i < childs.size(); i++) {
-            System.out.println(childs.get(i).getFatherAttribute());
+            System.out.println("***" + childs.get(i).getFatherAttribute());
             printDTree(childs.get(i));
         }
     }

@@ -7,8 +7,8 @@ package com.nenu.homework.decision;
  * Time: 20:06
  */
 public class Point {
-    private Double sv;
-    private Double entropySv;
+    private Double sv;  //出现次数
+    private Double entropySv; //信息熵
 
     public Double getSv() {
         return sv;
